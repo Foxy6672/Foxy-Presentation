@@ -156,7 +156,6 @@
       border-radius: 99px;
     }
 
-    /* Nom du matériel toujours visible sous la photo */
     .photo-caption {
       background: linear-gradient(90deg, #24170f, #14110f);
       border-top: 2px solid var(--orange);
@@ -184,7 +183,11 @@
     }
 
     .body { padding: 15px 16px 18px; flex: 1; }
-    .body h3 { font-size: 1.02rem; margin: 0 0 6px; color: #fff; }
+
+    /* Les noms sont déjà affichés sous les photos.
+       On masque uniquement les titres répétés des fiches produits. */
+    .body h3 { display: none; }
+
     .body p { font-size: .9rem; color: var(--muted); margin: 0; }
 
     .pill {
@@ -322,7 +325,6 @@
           <span class="model-ref">GE72MVR 7RG</span>
         </div>
         <div class="body">
-          <h3>Mon PC de streaming</h3>
           <p>Intel Core i7 de 7e génération · NVIDIA GTX 1070 · 32 Go de RAM DDR4.</p>
           <span class="pill">PC de streaming</span>
         </div>
@@ -339,7 +341,6 @@
           <span class="model-ref">Édition Standard</span>
         </div>
         <div class="body">
-          <h3>PlayStation 5</h3>
           <p>Ma plateforme de jeu pour les aventures et les sessions en live.</p>
           <span class="pill">Gaming</span>
         </div>
@@ -368,15 +369,13 @@
           <span class="model-ref">Boîtier externe de capture</span>
         </div>
         <div class="body">
-          <h3>Elgato 4K S</h3>
           <p>Carte de capture pour faire passer l’image de la PS5 vers le PC et l’écran de jeu.</p>
         </div>
       </article>
 
       <article class="card">
         <div class="visual dark-logo">
-          <img alt="Logo OBS Studio"
-            loading="lazy"
+          <img alt="Logo OBS Studio" loading="lazy"
             src="https://commons.wikimedia.org/wiki/Special:FilePath/OBS_Studio_Logo.svg" />
           <span class="tag">Logiciel</span>
         </div>
@@ -385,7 +384,6 @@
           <span class="model-ref">Logiciel de streaming et d’enregistrement</span>
         </div>
         <div class="body">
-          <h3>OBS Studio</h3>
           <p>Gestion des scènes, sources vidéo et diffusion des lives.</p>
           <span class="pill">Logiciel de streaming</span>
         </div>
@@ -395,6 +393,7 @@
 
     <div class="feature" style="margin-top:16px">
       <strong>Comprendre les branchements — étape par étape</strong>
+
       <p class="small-note">
         L’Elgato fait le lien entre la console, l’écran de jeu et le PC.
         Il envoie l’image à l’écran pour jouer et transmet la capture au PC
@@ -487,7 +486,6 @@
           <span class="model-ref">Micro-cravate sans fil</span>
         </div>
         <div class="body">
-          <h3>Hollyland LARK M2</h3>
           <p>Micro sans fil utilisé sur le PC pour ma voix pendant le live.</p>
         </div>
       </article>
@@ -503,7 +501,6 @@
           <span class="model-ref">Micro dynamique XLR / USB</span>
         </div>
         <div class="body">
-          <h3>TONOR TD520S</h3>
           <p>
             Micro utilisé habituellement sur la PS5. Selon les sessions,
             je peux aussi le brancher sur le PC et ne pas utiliser de micro
@@ -523,7 +520,6 @@
           <span class="model-ref">Casque gaming sans fil</span>
         </div>
         <div class="body">
-          <h3>SteelSeries Arctis Nova Pro Wireless</h3>
           <p>Casque gaming sans fil pour écouter le jeu et l’environnement audio du live.</p>
         </div>
       </article>
@@ -542,8 +538,7 @@
 
       <article class="card">
         <div class="visual photo">
-          <img alt="Samsung Odyssey G7 28 pouces"
-            loading="lazy"
+          <img alt="Samsung Odyssey G7 28 pouces" loading="lazy"
             src="https://img.us.news.samsung.com/us/wp-content/uploads/2021/06/18134936/Odyssey-G7-600x400.jpg" />
           <span class="tag">Écran principal</span>
         </div>
@@ -552,7 +547,6 @@
           <span class="model-ref">G70A · 4K · 144 Hz</span>
         </div>
         <div class="body">
-          <h3>Samsung Odyssey G7 — 28 pouces</h3>
           <p>
             Écran de jeu principal : l’image de la PS5 arrive ici depuis
             la sortie HDMI OUT de l’Elgato 4K S.
@@ -571,7 +565,6 @@
           <span class="model-ref">Second écran du PC</span>
         </div>
         <div class="body">
-          <h3>ViewSonic incurvé — 32 pouces</h3>
           <p>
             Second écran du PC, relié directement en HDMI. J’y affiche OBS
             Studio ou TikTok LIVE Studio pour gérer mon live.
@@ -594,7 +587,6 @@
           <span class="model-ref">Webcam</span>
         </div>
         <div class="body">
-          <h3>OBSBOT Meet SE</h3>
           <p>Webcam pour l’image en direct.</p>
         </div>
       </article>
@@ -622,7 +614,6 @@
           <span class="model-ref">Format compact 65 %</span>
         </div>
         <div class="body">
-          <h3>Glorious GMMK 2 — 65 %</h3>
           <p>Clavier mécanique compact.</p>
         </div>
       </article>
@@ -638,7 +629,6 @@
           <span class="model-ref">Wireless · LIGHTSPEED</span>
         </div>
         <div class="body">
-          <h3>Logitech G502 X Plus Wireless</h3>
           <p>Souris gaming sans fil.</p>
         </div>
       </article>
@@ -654,15 +644,15 @@
           <span class="model-ref">Système de recharge sans fil</span>
         </div>
         <div class="body">
-          <h3>Logitech POWERPLAY</h3>
           <p>Tapis avec système de recharge sans fil compatible avec ma souris.</p>
         </div>
       </article>
 
+      <!-- VOLANT LOGITECH G29 -->
       <article class="card">
         <div class="visual photo">
-          <img alt="Logitech G29 Driving Force" loading="lazy"
-            src="https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/drivingforce/g29-gallery-1-nb.png" />
+          <img alt="Logitech G29 Driving Force avec pédalier" loading="lazy"
+            src="https://boulanger.scene7.com/is/content/Boulanger/5099206129825_f_0" />
           <span class="tag">Volant &amp; pédalier</span>
         </div>
         <div class="photo-caption">
@@ -670,7 +660,6 @@
           <span class="model-ref">Volant avec pédalier</span>
         </div>
         <div class="body">
-          <h3>Logitech G29 Driving Force</h3>
           <p>Volant à retour de force avec pédalier pour mes sessions de simulation de conduite.</p>
           <span class="pill">Simulation</span>
         </div>
@@ -699,7 +688,6 @@
           <span class="model-ref">Tablette 11 pouces</span>
         </div>
         <div class="body">
-          <h3>Samsung Galaxy Tab A9+ — 11 pouces</h3>
           <p>
             Tablette utilisée comme retour live pour suivre le direct et lire
             le chat, ainsi que pour la modération.
@@ -719,7 +707,6 @@
           <span class="model-ref">Utilisé avec Stream Deck Mobile</span>
         </div>
         <div class="body">
-          <h3>Samsung Galaxy S25 Ultra</h3>
           <p>
             Mon smartphone, utilisé avec l’application Stream Deck Mobile
             pour piloter certaines commandes du live.
