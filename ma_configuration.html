@@ -2,753 +2,693 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#11100f" />
-  <title>Foxy_6672 — Ma configuration</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#11100f">
+<title>Foxy_6672 — Ma configuration</title>
 
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #11100f;
-      --panel: #1b1917;
-      --orange: #f07824;
-      --gold: #f3b35c;
-      --muted: #c7beb4;
-      --line: #5b3823;
-      --white: #f7f1e9;
-    }
+<style>
+:root {
+  color-scheme: dark;
+  --bg:#11100f;
+  --panel:#1b1917;
+  --orange:#f07824;
+  --gold:#f3b35c;
+  --muted:#c7beb4;
+  --line:#5b3823;
+  --white:#f7f1e9;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  background:radial-gradient(ellipse at 50% 0%,#492712 0%,#1b1511 34%,var(--bg) 72%);
+  color:var(--white);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.65;
+}
+a {color:var(--gold);text-decoration:none}
+a:hover {color:#fff;text-decoration:underline}
+.wrap {
+  width:min(1080px,calc(100% - 28px));
+  margin:28px auto 48px;
+  padding:clamp(20px,5vw,52px);
+  background:linear-gradient(145deg,rgba(35,29,25,.97),rgba(18,17,16,.98));
+  border:1px solid var(--line);
+  border-radius:22px;
+  box-shadow:0 22px 70px #0009;
+  position:relative;
+  overflow:hidden;
+}
+.wrap:before {
+  content:"ᚠ ᚱ ᚢ ᚾ ᛖ";
+  position:absolute;
+  right:18px;
+  top:10px;
+  color:#f078241c;
+  font-size:clamp(24px,5vw,42px);
+  letter-spacing:9px;
+  pointer-events:none;
+}
+.eyebrow {
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:var(--gold);
+  font-size:.76rem;
+  font-weight:800;
+}
+.fox {font-size:3rem;margin:8px 0 0}
+h1 {
+  font-size:clamp(2.4rem,7vw,4.6rem);
+  line-height:1.04;
+  margin:4px 0 14px;
+}
+h1 span {color:var(--orange)}
+.intro {font-size:1.12rem;color:#e9ded2;max-width:760px}
+.rule {
+  height:1px;
+  background:linear-gradient(90deg,var(--orange),transparent);
+  margin:32px 0;
+}
+h2 {
+  font-size:1.15rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--gold);
+  margin:0 0 16px;
+}
+.sub {color:var(--muted);margin:-8px 0 18px}
+.nav {display:flex;flex-wrap:wrap;gap:9px;margin:24px 0}
+.nav a {
+  font-size:.86rem;
+  padding:7px 12px;
+  border:1px solid #ffffff20;
+  border-radius:99px;
+  background:#ffffff08;
+}
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+}
+.card {
+  background:linear-gradient(145deg,#ffffff0d,#ffffff05);
+  border:1px solid #ffffff1b;
+  border-radius:16px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  transition:transform .2s ease,border-color .2s ease;
+}
+.card:hover {transform:translateY(-3px);border-color:#f0782470}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background: radial-gradient(ellipse at 50% 0%, #492712 0%, #1b1511 34%, var(--bg) 72%);
-      color: var(--white);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.65;
-    }
-
-    a { color: var(--gold); text-decoration: none; }
-    a:hover { color: #fff; text-decoration: underline; }
-
-    .wrap {
-      width: min(1080px, calc(100% - 28px));
-      margin: 28px auto 48px;
-      padding: clamp(20px, 5vw, 52px);
-      background: linear-gradient(145deg, rgba(35,29,25,.97), rgba(18,17,16,.98));
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: 0 22px 70px #0009;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .wrap:before {
-      content: "ᚠ ᚱ ᚢ ᚾ ᛖ";
-      position: absolute;
-      right: 18px;
-      top: 10px;
-      color: #f078241c;
-      font-size: clamp(24px, 5vw, 42px);
-      letter-spacing: 9px;
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: .2em;
-      color: var(--gold);
-      font-size: .76rem;
-      font-weight: 800;
-    }
-
-    .fox { font-size: 3rem; margin: 8px 0 0; }
-    h1 { font-size: clamp(2.4rem, 7vw, 4.6rem); line-height: 1.04; margin: 4px 0 14px; }
-    h1 span { color: var(--orange); }
-    .intro { font-size: 1.12rem; color: #e9ded2; max-width: 760px; }
-    .rule { height: 1px; background: linear-gradient(90deg, var(--orange), transparent); margin: 32px 0; }
-
-    h2 {
-      font-size: 1.15rem;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: var(--gold);
-      margin: 0 0 16px;
-    }
-
-    .sub { color: var(--muted); margin: -8px 0 18px; }
-
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin: 24px 0;
-    }
-
-    .nav a {
-      font-size: .86rem;
-      padding: 7px 12px;
-      border: 1px solid #ffffff20;
-      border-radius: 99px;
-      background: #ffffff08;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      background: linear-gradient(145deg, #ffffff0d, #ffffff05);
-      border: 1px solid #ffffff1b;
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      transition: transform .2s ease, border-color .2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: #f0782470;
-    }
-
-    .visual {
-      height: 165px;
-      display: grid;
-      place-items: center;
-      background: radial-gradient(circle at 50% 40%, #663719, #211812 68%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 14px;
-      background: #f7f5f2;
-    }
-
-    .visual.dark-logo img {
-      background: radial-gradient(circle at 50% 40%, #3a2315, #181310 75%);
-      padding: 22px;
-    }
-
-    .visual.photo { background: #f7f5f2; }
-
-    .visual .tag {
-      position: absolute;
-      left: 12px;
-      top: 10px;
-      z-index: 2;
-      font-size: .68rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: #f6c17e;
-      background: #160f0be6;
-      border: 1px solid #f0782466;
-      padding: 4px 8px;
-      border-radius: 99px;
-    }
-
-    .photo-caption {
-      background: linear-gradient(90deg, #24170f, #14110f);
-      border-top: 2px solid var(--orange);
-      border-bottom: 1px solid #ffffff20;
-      padding: 10px 13px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      min-height: 62px;
-      justify-content: center;
-    }
-
-    .photo-caption .product-name {
-      color: var(--gold);
-      font-size: .94rem;
-      font-weight: 850;
-      line-height: 1.3;
-    }
-
-    .photo-caption .model-ref {
-      color: var(--muted);
-      font-size: .75rem;
-      font-weight: 500;
-      line-height: 1.3;
-    }
-
-    .body { padding: 15px 16px 18px; flex: 1; }
-
-    /* Les noms sont déjà affichés sous les photos.
-       On masque uniquement les titres répétés des fiches produits. */
-    .body h3 { display: none; }
-
-    .body p { font-size: .9rem; color: var(--muted); margin: 0; }
-
-    .pill {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 4px 9px;
-      border-radius: 99px;
-      background: #f0782418;
-      border: 1px solid #f0782433;
-      color: var(--gold);
-      font-size: .75rem;
-    }
-
-    .wire-card {
-      border: 1px solid #ffffff22;
-      border-radius: 14px;
-      padding: 15px;
-      background: #ffffff08;
-      margin-top: 10px;
-    }
-
-    .wire-card h3 { margin: 0 0 8px; color: #fff; font-size: 1rem; }
-    .wire-step { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-
-    .wire-node {
-      flex: 1;
-      min-width: 145px;
-      padding: 12px;
-      border-radius: 10px;
-      text-align: center;
-      background: linear-gradient(145deg, #3a2418, #1b1714);
-      border: 1px solid #f0782470;
-      font-weight: 750;
-    }
-
-    .wire-label {
-      font-size: .78rem;
-      color: var(--gold);
-      font-weight: 800;
-      text-align: center;
-    }
-
-    .wire-arrow { color: var(--orange); font-size: 1.35rem; font-weight: 900; }
-    .small-note { font-size: .82rem; color: var(--muted); margin: 8px 0 0; }
-
-    .feature {
-      padding: 20px;
-      border: 1px solid #ffffff1b;
-      border-radius: 16px;
-      background: #ffffff08;
-    }
-
-    .feature strong { color: #fff; }
-    .note { color: var(--muted); font-size: .9rem; text-align: center; margin-top: 14px; }
-
-    .welcome {
-      margin: 28px 0 0;
-      padding: 19px;
-      border-left: 3px solid var(--orange);
-      background: #f0782410;
-      border-radius: 0 12px 12px 0;
-      font-size: 1.08rem;
-      font-weight: 650;
-    }
-
-    .footer { margin-top: 30px; text-align: center; color: #a99d91; font-size: .82rem; }
-    .footer b { color: var(--orange); }
-
-    .image-fallback {
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      padding: 20px;
-      text-align: center;
-      color: var(--gold);
-      background: radial-gradient(circle at 50% 40%, #663719, #211812 75%);
-      font-weight: 800;
-      font-size: .95rem;
-    }
-
-    @media(max-width:520px) {
-      .wrap { margin: 12px auto 28px; }
-      .visual { height: 145px; }
-      .photo-caption { min-height: 58px; }
-    }
-
-    @media(prefers-reduced-motion:reduce) {
-      html { scroll-behavior: auto; }
-      .card { transition: none; }
-    }
-  </style>
+/* Zone photo agrandie : les images gardent leurs proportions */
+.visual {
+  height:230px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at 50% 40%,#663719,#211812 68%);
+  position:relative;
+  overflow:hidden;
+  padding:10px;
+}
+.visual img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  padding:8px;
+  background:#f7f5f2;
+}
+.visual.dark-logo img {
+  background:radial-gradient(circle at 50% 40%,#3a2315,#181310 75%);
+  padding:22px;
+}
+.visual.photo {background:#f7f5f2}
+.visual .tag {
+  position:absolute;
+  left:12px;
+  top:10px;
+  z-index:2;
+  font-size:.68rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#f6c17e;
+  background:#160f0be6;
+  border:1px solid #f0782466;
+  padding:4px 8px;
+  border-radius:99px;
+}
+.photo-caption {
+  background:linear-gradient(90deg,#24170f,#14110f);
+  border-top:2px solid var(--orange);
+  border-bottom:1px solid #ffffff20;
+  padding:10px 13px;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-height:62px;
+  justify-content:center;
+}
+.photo-caption .product-name {
+  color:var(--gold);
+  font-size:.94rem;
+  font-weight:850;
+  line-height:1.3;
+}
+.photo-caption .model-ref {
+  color:var(--muted);
+  font-size:.75rem;
+  font-weight:500;
+  line-height:1.3;
+}
+.body {padding:15px 16px 18px;flex:1}
+/* Évite de répéter le nom déjà affiché sous la photo */
+.body > h3 {display:none}
+.body p {font-size:.9rem;color:var(--muted);margin:0}
+.pill {
+  display:inline-block;
+  margin-top:10px;
+  padding:4px 9px;
+  border-radius:99px;
+  background:#f0782418;
+  border:1px solid #f0782433;
+  color:var(--gold);
+  font-size:.75rem;
+}
+.wire-card {
+  border:1px solid #ffffff22;
+  border-radius:14px;
+  padding:15px;
+  background:#ffffff08;
+  margin-top:10px;
+}
+.wire-card h3 {margin:0 0 8px;color:#fff;font-size:1rem}
+.wire-step {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.wire-node {
+  flex:1;
+  min-width:145px;
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+  background:linear-gradient(145deg,#3a2418,#1b1714);
+  border:1px solid #f0782470;
+  font-weight:750;
+}
+.wire-label {
+  font-size:.78rem;
+  color:var(--gold);
+  font-weight:800;
+  text-align:center;
+}
+.wire-arrow {color:var(--orange);font-size:1.35rem;font-weight:900}
+.small-note {font-size:.82rem;color:var(--muted);margin:8px 0 0}
+.feature {
+  padding:20px;
+  border:1px solid #ffffff1b;
+  border-radius:16px;
+  background:#ffffff08;
+  margin-top:16px;
+}
+.feature strong {color:#fff}
+.note {color:var(--muted);font-size:.9rem;text-align:center;margin-top:14px}
+.welcome {
+  margin:28px 0 0;
+  padding:19px;
+  border-left:3px solid var(--orange);
+  background:#f0782410;
+  border-radius:0 12px 12px 0;
+  font-size:1.08rem;
+  font-weight:650;
+}
+.footer {margin-top:30px;text-align:center;color:#a99d91;font-size:.82rem}
+.footer b {color:var(--orange)}
+.image-fallback {
+  width:100%;
+  height:100%;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  text-align:center;
+  color:var(--gold);
+  background:radial-gradient(circle at 50% 40%,#663719,#211812 75%);
+  font-weight:800;
+  font-size:.95rem;
+}
+@media(max-width:520px) {
+  .wrap {margin:12px auto 28px}
+  .visual {height:205px}
+  .photo-caption {min-height:58px}
+}
+@media(prefers-reduced-motion:reduce) {
+  html {scroll-behavior:auto}
+  .card {transition:none}
+}
+</style>
 </head>
 
 <body>
 <main class="wrap">
 
-  <div class="eyebrow">Gaming • Streaming • Setup</div>
-  <div aria-hidden="true" class="fox">🦊</div>
+<div class="eyebrow">Gaming • Streaming • Setup</div>
+<div aria-hidden="true" class="fox">🦊</div>
 
-  <h1>La configuration<br /><span>de Foxy</span></h1>
+<h1>La configuration<br><span>de Foxy</span></h1>
+<p class="intro">
+Bienvenue dans les coulisses de mes lives ! Voici le matériel que j’utilise
+pour jouer, capturer mes sessions, gérer le chat et partager mes aventures
+avec la Tribu.
+</p>
 
-  <p class="intro">
-    Bienvenue dans les coulisses de mes lives ! Voici le matériel que j’utilise
-    pour jouer, capturer mes sessions, gérer le chat et partager mes aventures
-    avec la Tribu.
-  </p>
+<nav aria-label="Navigation des catégories" class="nav">
+<a href="#plateforme">PC &amp; console</a>
+<a href="#diffusion">Diffusion</a>
+<a href="#audio">Audio</a>
+<a href="#video">Écrans &amp; vidéo</a>
+<a href="#peripheriques">Périphériques</a>
+<a href="#mobile">Mobile &amp; contrôle</a>
+</nav>
 
-  <nav aria-label="Navigation des catégories" class="nav">
-    <a href="#plateforme">PC &amp; console</a>
-    <a href="#diffusion">Diffusion</a>
-    <a href="#audio">Audio</a>
-    <a href="#video">Écrans &amp; vidéo</a>
-    <a href="#peripheriques">Périphériques</a>
-    <a href="#mobile">Mobile &amp; contrôle</a>
-  </nav>
+<div class="rule"></div>
 
-  <div class="rule"></div>
+<!-- 01 : PC ET CONSOLE -->
+<section id="plateforme">
+<h2>01 — PC &amp; plateforme de jeu</h2>
+<p class="sub">La base de mon installation gaming.</p>
 
-  <!-- 01 : PC ET CONSOLE -->
-  <section id="plateforme">
-    <h2>01 — PC &amp; plateforme de jeu</h2>
-    <p class="sub">La base de mon installation gaming.</p>
+<div class="cards">
+<article class="card">
+<div class="visual photo">
+<img alt="MSI Apache Pro GE72MVR" loading="lazy" src="https://media.topachat.com/media/s550/6197829da5c58356de6e0775.jpg">
+<span class="tag">PC portable</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">MSI Apache Pro GE72MVR</span>
+<span class="model-ref">GE72MVR 7RG</span>
+</div>
+<div class="body">
+<p>Intel Core i7 de 7e génération · NVIDIA GTX 1070 · 32 Go de RAM DDR4.</p>
+<span class="pill">PC de streaming</span>
+</div>
+</article>
 
-    <div class="cards">
+<article class="card">
+<div class="visual photo">
+<img alt="Sony PlayStation 5" loading="lazy" src="https://alabamart.com/cdn/shop/files/PS53.png?v=1699517502&amp;width=1445">
+<span class="tag">Console</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">Sony PlayStation 5</span>
+<span class="model-ref">Édition Standard</span>
+</div>
+<div class="body">
+<p>Ma plateforme de jeu pour les aventures et les sessions en live.</p>
+<span class="pill">Gaming</span>
+</div>
+</article>
+</div>
+</section>
 
-      <article class="card">
-        <div class="visual photo">
-          <img alt="MSI Apache Pro GE72MVR" loading="lazy"
-            src="https://media.topachat.com/media/s550/6197829da5c58356de6e0775.jpg" />
-          <span class="tag">PC portable</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">MSI Apache Pro GE72MVR</span>
-          <span class="model-ref">GE72MVR 7RG</span>
-        </div>
-        <div class="body">
-          <p>Intel Core i7 de 7e génération · NVIDIA GTX 1070 · 32 Go de RAM DDR4.</p>
-          <span class="pill">PC de streaming</span>
-        </div>
-      </article>
+<div class="rule"></div>
 
-      <article class="card">
-        <div class="visual photo">
-          <img alt="Sony PlayStation 5" loading="lazy"
-            src="https://alabamart.com/cdn/shop/files/PS53.png?v=1699517502&amp;width=1445" />
-          <span class="tag">Console</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">Sony PlayStation 5</span>
-          <span class="model-ref">Édition Standard</span>
-        </div>
-        <div class="body">
-          <p>Ma plateforme de jeu pour les aventures et les sessions en live.</p>
-          <span class="pill">Gaming</span>
-        </div>
-      </article>
+<!-- 02 : CAPTURE ET DIFFUSION -->
+<section id="diffusion">
+<h2>02 — Capture &amp; diffusion</h2>
+<p class="sub">Le chemin de l’image et du son jusqu’à la plateforme de live.</p>
 
-    </div>
-  </section>
+<div class="cards">
+<article class="card">
+<div class="visual photo">
+<img alt="Elgato 4K S" loading="lazy" src="https://www.markertek.com/productImage/alternate-1/hi-res/EGO-4K-S.JPG">
+<span class="tag">Capture</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">Elgato 4K S</span>
+<span class="model-ref">Boîtier externe de capture</span>
+</div>
+<div class="body">
+<p>Carte de capture pour faire passer l’image de la PS5 vers le PC et l’écran de jeu.</p>
+</div>
+</article>
 
-  <div class="rule"></div>
+<article class="card">
+<div class="visual dark-logo">
+<img alt="Logo OBS Studio" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/OBS_Studio_Logo.svg">
+<span class="tag">Logiciel</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">OBS Studio</span>
+<span class="model-ref">Logiciel de streaming et d’enregistrement</span>
+</div>
+<div class="body">
+<p>Gestion des scènes, sources vidéo et diffusion des lives.</p>
+<span class="pill">Logiciel de streaming</span>
+</div>
+</article>
+</div>
 
-  <!-- 02 : CAPTURE ET DIFFUSION -->
-  <section id="diffusion">
-    <h2>02 — Capture &amp; diffusion</h2>
-    <p class="sub">Le chemin de l’image et du son jusqu’à la plateforme de live.</p>
+<div class="feature">
+<strong>Comprendre les branchements — étape par étape</strong>
+<p class="small-note">
+L’Elgato fait le lien entre la console, l’écran de jeu et le PC.
+Il envoie l’image à l’écran pour jouer et transmet la capture au PC
+pour le streaming.
+</p>
 
-    <div class="cards">
+<div class="wire-card">
+<h3>1. La console envoie l’image</h3>
+<div class="wire-step">
+<div class="wire-node">🎮 PlayStation 5<div class="wire-label">HDMI OUT</div></div>
+<span class="wire-arrow">→</span>
+<div class="wire-node">🎥 Elgato 4K S<div class="wire-label">HDMI IN</div></div>
+</div>
+<p class="small-note">Un câble HDMI relie la PS5 à l’entrée HDMI IN de l’Elgato.</p>
+</div>
 
-      <article class="card">
-        <div class="visual photo">
-          <img alt="Elgato 4K S" loading="lazy"
-            src="https://www.markertek.com/productImage/alternate-1/hi-res/EGO-4K-S.JPG" />
-          <span class="tag">Capture</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">Elgato 4K S</span>
-          <span class="model-ref">Boîtier externe de capture</span>
-        </div>
-        <div class="body">
-          <p>Carte de capture pour faire passer l’image de la PS5 vers le PC et l’écran de jeu.</p>
-        </div>
-      </article>
+<div class="wire-card">
+<h3>2. L’image repart vers l’écran de jeu</h3>
+<div class="wire-step">
+<div class="wire-node">🎥 Elgato 4K S<div class="wire-label">HDMI OUT</div></div>
+<span class="wire-arrow">→</span>
+<div class="wire-node">🖥️ Samsung Odyssey G7<div class="wire-label">Entrée HDMI</div></div>
+</div>
+<p class="small-note">
+Un deuxième câble HDMI relie la sortie HDMI OUT de l’Elgato à
+l’Odyssey G7. C’est sur cet écran que je joue.
+</p>
+</div>
 
-      <article class="card">
-        <div class="visual dark-logo">
-          <img alt="Logo OBS Studio" loading="lazy"
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/OBS_Studio_Logo.svg" />
-          <span class="tag">Logiciel</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">OBS Studio</span>
-          <span class="model-ref">Logiciel de streaming et d’enregistrement</span>
-        </div>
-        <div class="body">
-          <p>Gestion des scènes, sources vidéo et diffusion des lives.</p>
-          <span class="pill">Logiciel de streaming</span>
-        </div>
-      </article>
+<div class="wire-card">
+<h3>3. L’Elgato transmet la capture au PC</h3>
+<div class="wire-step">
+<div class="wire-node">🎥 Elgato 4K S<div class="wire-label">USB-C</div></div>
+<span class="wire-arrow">→</span>
+<div class="wire-node">💻 PC MSI<div class="wire-label">USB</div></div>
+</div>
+<p class="small-note">
+Le câble USB-C relie l’Elgato au PC. OBS Studio peut alors récupérer
+l’image de la PS5 comme source vidéo.
+</p>
+</div>
 
-    </div>
+<div class="wire-card">
+<h3>4. Le PC affiche les outils du live</h3>
+<div class="wire-step">
+<div class="wire-node">💻 PC MSI<div class="wire-label">HDMI</div></div>
+<span class="wire-arrow">→</span>
+<div class="wire-node">🖥️ ViewSonic 32 pouces<div class="wire-label">Entrée HDMI</div></div>
+</div>
+<p class="small-note">
+Le ViewSonic est branché directement au PC en HDMI. J’y place OBS
+Studio ou TikTok LIVE Studio pour surveiller et gérer le direct.
+</p>
+</div>
 
-    <div class="feature" style="margin-top:16px">
-      <strong>Comprendre les branchements — étape par étape</strong>
+<div class="wire-card">
+<h3>🎙️ Configuration audio habituelle</h3>
+<p>Hollyland LARK M2 → PC pour la voix du live.</p>
+<p>TONOR TD520S → PS5.</p>
+</div>
 
-      <p class="small-note">
-        L’Elgato fait le lien entre la console, l’écran de jeu et le PC.
-        Il envoie l’image à l’écran pour jouer et transmet la capture au PC
-        pour le streaming.
-      </p>
+<div class="wire-card">
+<h3>🎙️ Configuration audio alternative</h3>
+<p>TONOR TD520S → PC. Dans cette configuration, aucun micro n’est utilisé sur la PS5.</p>
+</div>
 
-      <div class="wire-card">
-        <h3>1. La console envoie l’image</h3>
-        <div class="wire-step">
-          <div class="wire-node">🎮 PlayStation 5<div class="wire-label">HDMI OUT</div></div>
-          <span class="wire-arrow">→</span>
-          <div class="wire-node">🎥 Elgato 4K S<div class="wire-label">HDMI IN</div></div>
-        </div>
-        <p class="small-note">Un câble HDMI relie la PS5 à l’entrée HDMI IN de l’Elgato.</p>
-      </div>
+<p class="note">
+Je diffuse sur Twitch ou TikTok selon le live, pas sur les deux simultanément.
+</p>
+</div>
+</section>
 
-      <div class="wire-card">
-        <h3>2. L’image repart vers l’écran de jeu</h3>
-        <div class="wire-step">
-          <div class="wire-node">🎥 Elgato 4K S<div class="wire-label">HDMI OUT</div></div>
-          <span class="wire-arrow">→</span>
-          <div class="wire-node">🖥️ Samsung Odyssey G7<div class="wire-label">Entrée HDMI</div></div>
-        </div>
-        <p class="small-note">
-          Un deuxième câble HDMI relie la sortie HDMI OUT de l’Elgato à
-          l’Odyssey G7. C’est sur cet écran que je joue.
-        </p>
-      </div>
+<div class="rule"></div>
 
-      <div class="wire-card">
-        <h3>3. L’Elgato transmet la capture au PC</h3>
-        <div class="wire-step">
-          <div class="wire-node">🎥 Elgato 4K S<div class="wire-label">USB-C</div></div>
-          <span class="wire-arrow">→</span>
-          <div class="wire-node">💻 PC MSI<div class="wire-label">USB</div></div>
-        </div>
-        <p class="small-note">
-          Le câble USB-C relie l’Elgato au PC. OBS Studio peut alors récupérer
-          l’image de la PS5 comme source vidéo.
-        </p>
-      </div>
+<!-- 03 : AUDIO -->
+<section id="audio">
+<h2>03 — Audio &amp; microphones</h2>
+<p class="sub">Deux solutions micro selon le type de contenu, avec mon casque pour le son du jeu et du live.</p>
 
-      <div class="wire-card">
-        <h3>4. Le PC affiche les outils du live</h3>
-        <div class="wire-step">
-          <div class="wire-node">💻 PC MSI<div class="wire-label">HDMI</div></div>
-          <span class="wire-arrow">→</span>
-          <div class="wire-node">🖥️ ViewSonic 32 pouces<div class="wire-label">Entrée HDMI</div></div>
-        </div>
-        <p class="small-note">
-          Le ViewSonic est branché directement au PC en HDMI. J’y place OBS
-          Studio ou TikTok LIVE Studio pour surveiller et gérer le direct.
-        </p>
-      </div>
+<div class="cards">
+<article class="card">
+<div class="visual photo">
+<img alt="Hollyland LARK M2" loading="lazy" src="https://images.tcdn.com.br/img/img_prod/1377594/microfone_de_lapela_sem_fio_2tx_3rx_usb_c_combo_lark_m2_combo_hollyland_8998_1_bdd0745efcb28a4b819cc33035f72e34.jpg">
+<span class="tag">Sans fil</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">Hollyland LARK M2</span>
+<span class="model-ref">Micro-cravate sans fil</span>
+</div>
+<div class="body">
+<p>Micro sans fil utilisé sur le PC pour ma voix pendant le live.</p>
+</div>
+</article>
 
-      <div class="wire-card">
-        <h3>🎙️ Configuration audio habituelle</h3>
-        <p>Hollyland LARK M2 → PC pour la voix du live.</p>
-        <p>TONOR TD520S → PS5.</p>
-      </div>
+<article class="card">
+<div class="visual photo">
+<img alt="TONOR TD520S" loading="lazy" src="https://kobra.odkarla.cz/t1/490x490/4c/b3/1267508/1267508_0.jpg/~/mikrofon-tonor-td520s-xlrusb">
+<span class="tag">Micro USB</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">TONOR TD520S</span>
+<span class="model-ref">Micro dynamique XLR / USB</span>
+</div>
+<div class="body">
+<p>
+Micro utilisé habituellement sur la PS5. Selon les sessions,
+je peux aussi le brancher sur le PC et ne pas utiliser de micro
+sur la PlayStation.
+</p>
+</div>
+</article>
 
-      <div class="wire-card">
-        <h3>🎙️ Configuration audio alternative</h3>
-        <p>TONOR TD520S → PC. Dans cette configuration, aucun micro n’est utilisé sur la PS5.</p>
-      </div>
+<article class="card">
+<div class="visual photo">
+<img alt="SteelSeries Arctis Nova Pro Wireless" loading="lazy" src="https://cdn.media.amplience.net/i/currysprod/10238529_006?%24l-large%24=&amp;fmt=auto">
+<span class="tag">Casque</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">SteelSeries Arctis Nova Pro Wireless</span>
+<span class="model-ref">Casque gaming sans fil</span>
+</div>
+<div class="body">
+<p>Casque gaming sans fil pour écouter le jeu et l’environnement audio du live.</p>
+</div>
+</article>
+</div>
+</section>
 
-      <p class="note">
-        Je diffuse sur Twitch ou TikTok selon le live, pas sur les deux simultanément.
-      </p>
-    </div>
-  </section>
+<div class="rule"></div>
 
-  <div class="rule"></div>
+<!-- 04 : ECRANS ET VIDEO -->
+<section id="video">
+<h2>04 — Écrans &amp; vidéo</h2>
+<p class="sub">L’affichage et la caméra qui accompagnent mes sessions.</p>
 
-  <!-- 03 : AUDIO -->
-  <section id="audio">
-    <h2>03 — Audio &amp; microphones</h2>
-    <p class="sub">Deux solutions micro selon le type de contenu, avec mon casque pour le son du jeu et du live.</p>
+<div class="cards">
+<article class="card">
+<div class="visual photo">
+<img alt="Samsung Odyssey G7 28 pouces" loading="lazy" src="https://img.us.news.samsung.com/us/wp-content/uploads/2021/06/18134936/Odyssey-G7-600x400.jpg">
+<span class="tag">Écran principal</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">Samsung Odyssey G7 — 28 pouces</span>
+<span class="model-ref">G70A · 4K · 144 Hz</span>
+</div>
+<div class="body">
+<p>
+Écran de jeu principal : l’image de la PS5 arrive ici depuis
+la sortie HDMI OUT de l’Elgato 4K S.
+</p>
+</div>
+</article>
 
-    <div class="cards">
+<article class="card">
+<div class="visual photo">
+<img alt="ViewSonic incurvé 32 pouces" loading="lazy" src="https://www.awapaz.com/web/image/product.image/1066/image_1024/Viewsonic%20Monitor%20Gaming%20OMNI%2032%22%20curvo%20165Hz%201ms%202560%2A1440%20VX3218C-2K?unique=251391c">
+<span class="tag">Second écran</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">ViewSonic incurvé — 32 pouces</span>
+<span class="model-ref">Second écran du PC</span>
+</div>
+<div class="body">
+<p>
+Second écran du PC, relié directement en HDMI. J’y affiche OBS
+Studio ou TikTok LIVE Studio pour gérer mon live.
+</p>
+<p class="small-note">
+Photo générique d’un écran ViewSonic incurvé 32 pouces :
+le modèle exact n’est pas connu.
+</p>
+</div>
+</article>
 
-      <article class="card">
-        <div class="visual photo">
-          <img alt="Hollyland LARK M2" loading="lazy"
-            src="https://images.tcdn.com.br/img/img_prod/1377594/microfone_de_lapela_sem_fio_2tx_3rx_usb_c_combo_lark_m2_combo_hollyland_8998_1_bdd0745efcb28a4b819cc33035f72e34.jpg" />
-          <span class="tag">Sans fil</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">Hollyland LARK M2</span>
-          <span class="model-ref">Micro-cravate sans fil</span>
-        </div>
-        <div class="body">
-          <p>Micro sans fil utilisé sur le PC pour ma voix pendant le live.</p>
-        </div>
-      </article>
+<article class="card">
+<div class="visual photo">
+<img alt="OBSBOT Meet SE" loading="lazy" src="https://shop.r10s.jp/dpsj/cabinet/obsbot/obsbot-meet-se/obs-meet-se-green.jpg">
+<span class="tag">Webcam</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">OBSBOT Meet SE</span>
+<span class="model-ref">Webcam</span>
+</div>
+<div class="body">
+<p>Webcam pour l’image en direct.</p>
+</div>
+</article>
+</div>
+</section>
 
-      <article class="card">
-        <div class="visual photo">
-          <img alt="TONOR TD520S" loading="lazy"
-            src="https://kobra.odkarla.cz/t1/490x490/4c/b3/1267508/1267508_0.jpg/~/mikrofon-tonor-td520s-xlrusb" />
-          <span class="tag">Micro USB</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">TONOR TD520S</span>
-          <span class="model-ref">Micro dynamique XLR / USB</span>
-        </div>
-        <div class="body">
-          <p>
-            Micro utilisé habituellement sur la PS5. Selon les sessions,
-            je peux aussi le brancher sur le PC et ne pas utiliser de micro
-            sur la PlayStation.
-          </p>
-        </div>
-      </article>
+<div class="rule"></div>
 
-      <article class="card">
-        <div class="visual photo">
-          <img alt="SteelSeries Arctis Nova Pro Wireless" loading="lazy"
-            src="https://cdn.media.amplience.net/i/currysprod/10238529_006?%24l-large%24=&amp;fmt=auto" />
-          <span class="tag">Casque</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">SteelSeries Arctis Nova Pro Wireless</span>
-          <span class="model-ref">Casque gaming sans fil</span>
-        </div>
-        <div class="body">
-          <p>Casque gaming sans fil pour écouter le jeu et l’environnement audio du live.</p>
-        </div>
-      </article>
+<!-- 05 : PERIPHERIQUES -->
+<section id="peripheriques">
+<h2>05 — Périphériques &amp; commandes</h2>
+<p class="sub">Les accessoires que j’utilise au quotidien pour jouer.</p>
 
-    </div>
-  </section>
+<div class="cards">
+<article class="card">
+<div class="visual photo">
+<img alt="Glorious GMMK 2 65 pour cent" loading="lazy" src="https://easypc.com.ph/cdn/shop/products/Glorious_Modular_Mechanical_Keyboard_2_GMMK_2_65_1200x1200.jpg?v=1703215904">
+<span class="tag">Clavier</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">Glorious GMMK 2</span>
+<span class="model-ref">Format compact 65 %</span>
+</div>
+<div class="body">
+<p>Clavier mécanique compact.</p>
+</div>
+</article>
 
-  <div class="rule"></div>
+<article class="card">
+<div class="visual photo">
+<img alt="Logitech G502 X Plus Wireless" loading="lazy" src="https://images.products.tctc.se/w8r1bmw06i9v40ia3ehqtfh8aurh6dvl.jpg">
+<span class="tag">Souris</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">Logitech G502 X PLUS</span>
+<span class="model-ref">Wireless · LIGHTSPEED</span>
+</div>
+<div class="body">
+<p>Souris gaming sans fil.</p>
+</div>
+</article>
 
-  <!-- 04 : ECRANS ET VIDEO -->
-  <section id="video">
-    <h2>04 — Écrans &amp; vidéo</h2>
-    <p class="sub">L’affichage et la caméra qui accompagnent mes sessions.</p>
+<article class="card">
+<div class="visual photo">
+<img alt="Logitech POWERPLAY" loading="lazy" src="https://resource.logitechg.com/w_544%2Ch_466%2Car_7%3A6%2Cc_pad%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/gaming/en/products/powerplay/2024-update/powerplay-gallery-1-new.png">
+<span class="tag">Tapis</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">Logitech POWERPLAY</span>
+<span class="model-ref">Système de recharge sans fil</span>
+</div>
+<div class="body">
+<p>Tapis avec système de recharge sans fil compatible avec ma souris.</p>
+</div>
+</article>
 
-    <div class="cards">
+<article class="card">
+<div class="visual photo">
+<img alt="Logitech G29 Driving Force avec pédalier" loading="lazy" src="https://www.bhphotovideo.com/images/images1500x1500/logitech_941_000110_g29_driving_force_racing_1374569.jpg">
+<span class="tag">Volant &amp; pédalier</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">Logitech G29 Driving Force</span>
+<span class="model-ref">Volant avec pédalier</span>
+</div>
+<div class="body">
+<p>Volant à retour de force avec pédalier pour mes sessions de simulation de conduite.</p>
+<span class="pill">Simulation</span>
+</div>
+</article>
+</div>
+</section>
 
-      <article class="card">
-        <div class="visual photo">
-          <img alt="Samsung Odyssey G7 28 pouces" loading="lazy"
-            src="https://img.us.news.samsung.com/us/wp-content/uploads/2021/06/18134936/Odyssey-G7-600x400.jpg" />
-          <span class="tag">Écran principal</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">Samsung Odyssey G7 — 28 pouces</span>
-          <span class="model-ref">G70A · 4K · 144 Hz</span>
-        </div>
-        <div class="body">
-          <p>
-            Écran de jeu principal : l’image de la PS5 arrive ici depuis
-            la sortie HDMI OUT de l’Elgato 4K S.
-          </p>
-        </div>
-      </article>
+<div class="rule"></div>
 
-      <article class="card">
-        <div class="visual photo">
-          <img alt="ViewSonic incurvé 32 pouces" loading="lazy"
-            src="https://www.awapaz.com/web/image/product.image/1066/image_1024/Viewsonic%20Monitor%20Gaming%20OMNI%2032%22%20curvo%20165Hz%201ms%202560%2A1440%20VX3218C-2K?unique=251391c" />
-          <span class="tag">Second écran</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">ViewSonic incurvé — 32 pouces</span>
-          <span class="model-ref">Second écran du PC</span>
-        </div>
-        <div class="body">
-          <p>
-            Second écran du PC, relié directement en HDMI. J’y affiche OBS
-            Studio ou TikTok LIVE Studio pour gérer mon live.
-          </p>
-          <p class="small-note">
-            Photo générique d’un écran ViewSonic incurvé 32 pouces :
-            le modèle exact n’est pas connu.
-          </p>
-        </div>
-      </article>
+<!-- 06 : MOBILE ET CONTROLE -->
+<section id="mobile">
+<h2>06 — Mobile &amp; contrôle du live</h2>
+<p class="sub">Mes appareils pour suivre le direct et piloter certaines commandes.</p>
 
-      <article class="card">
-        <div class="visual photo">
-          <img alt="OBSBOT Meet SE" loading="lazy"
-            src="https://shop.r10s.jp/dpsj/cabinet/obsbot/obsbot-meet-se/obs-meet-se-green.jpg" />
-          <span class="tag">Webcam</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">OBSBOT Meet SE</span>
-          <span class="model-ref">Webcam</span>
-        </div>
-        <div class="body">
-          <p>Webcam pour l’image en direct.</p>
-        </div>
-      </article>
+<div class="cards">
+<article class="card">
+<div class="visual photo">
+<img alt="Samsung Galaxy Tab A9 Plus" loading="lazy" src="https://birite.com.au/cdn/shop/files/MDSMX210NZAEXSA-Samsung-Galaxy-Tab-A9-Wi-Fi-128GB-Graphite_Main.png?v=1722398508&amp;width=990">
+<span class="tag">Retour live</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">Samsung Galaxy Tab A9+</span>
+<span class="model-ref">Tablette 11 pouces</span>
+</div>
+<div class="body">
+<p>
+Tablette utilisée comme retour live pour suivre le direct et lire
+le chat, ainsi que pour la modération.
+</p>
+<span class="pill">Chat &amp; modération</span>
+</div>
+</article>
 
-    </div>
-  </section>
+<article class="card">
+<div class="visual photo">
+<img alt="Samsung Galaxy S25 Ultra" loading="lazy" src="https://vividgold.co.ke/cdn/shop/files/Samsung_Galaxy_S25_Ultra_Titanium_Grey.png?v=1739632884">
+<span class="tag">Commandes</span>
+</div>
+<div class="photo-caption">
+<span class="product-name">Samsung Galaxy S25 Ultra</span>
+<span class="model-ref">Utilisé avec Stream Deck Mobile</span>
+</div>
+<div class="body">
+<p>
+Mon smartphone, utilisé avec l’application Stream Deck Mobile
+pour piloter certaines commandes du live.
+</p>
+<span class="pill">Stream Deck Mobile</span>
+</div>
+</article>
+</div>
+</section>
 
-  <div class="rule"></div>
+<section class="welcome">
+🔥 Voilà les coulisses de mon installation ! Du jeu à la diffusion,
+chaque élément a sa place pour partager de bons moments avec la Tribu.
+Merci de soutenir <span style="color:var(--gold)">Foxy_6672</span> ! 🦊
+</section>
 
-  <!-- 05 : PERIPHERIQUES -->
-  <section id="peripheriques">
-    <h2>05 — Périphériques &amp; commandes</h2>
-    <p class="sub">Les accessoires que j’utilise au quotidien pour jouer.</p>
+<p class="small-note" style="text-align:center;margin-top:12px">
+Les photos sont des visuels de présentation des produits.
+Pour le ViewSonic, l’image est indicative car la référence exacte n’est pas connue.
+</p>
 
-    <div class="cards">
-
-      <article class="card">
-        <div class="visual photo">
-          <img alt="Glorious GMMK 2 65 pour cent" loading="lazy"
-            src="https://easypc.com.ph/cdn/shop/products/Glorious_Modular_Mechanical_Keyboard_2_GMMK_2_65_1200x1200.jpg?v=1703215904" />
-          <span class="tag">Clavier</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">Glorious GMMK 2</span>
-          <span class="model-ref">Format compact 65 %</span>
-        </div>
-        <div class="body">
-          <p>Clavier mécanique compact.</p>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="visual photo">
-          <img alt="Logitech G502 X Plus Wireless" loading="lazy"
-            src="https://images.products.tctc.se/w8r1bmw06i9v40ia3ehqtfh8aurh6dvl.jpg" />
-          <span class="tag">Souris</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">Logitech G502 X PLUS</span>
-          <span class="model-ref">Wireless · LIGHTSPEED</span>
-        </div>
-        <div class="body">
-          <p>Souris gaming sans fil.</p>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="visual photo">
-          <img alt="Logitech POWERPLAY" loading="lazy"
-            src="https://resource.logitechg.com/w_544%2Ch_466%2Car_7%3A6%2Cc_pad%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/gaming/en/products/powerplay/2024-update/powerplay-gallery-1-new.png" />
-          <span class="tag">Tapis</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">Logitech POWERPLAY</span>
-          <span class="model-ref">Système de recharge sans fil</span>
-        </div>
-        <div class="body">
-          <p>Tapis avec système de recharge sans fil compatible avec ma souris.</p>
-        </div>
-      </article>
-
-      <!-- VOLANT LOGITECH G29 -->
-      <article class="card">
-        <div class="visual photo">
-          <img alt="Logitech G29 Driving Force avec pédalier" loading="lazy"
-            src="https://boulanger.scene7.com/is/content/Boulanger/5099206129825_f_0" />
-          <span class="tag">Volant &amp; pédalier</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">Logitech G29 Driving Force</span>
-          <span class="model-ref">Volant avec pédalier</span>
-        </div>
-        <div class="body">
-          <p>Volant à retour de force avec pédalier pour mes sessions de simulation de conduite.</p>
-          <span class="pill">Simulation</span>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <div class="rule"></div>
-
-  <!-- 06 : MOBILE ET CONTROLE -->
-  <section id="mobile">
-    <h2>06 — Mobile &amp; contrôle du live</h2>
-    <p class="sub">Mes appareils pour suivre le direct et piloter certaines commandes.</p>
-
-    <div class="cards">
-
-      <article class="card">
-        <div class="visual photo">
-          <img alt="Samsung Galaxy Tab A9 Plus" loading="lazy"
-            src="https://birite.com.au/cdn/shop/files/MDSMX210NZAEXSA-Samsung-Galaxy-Tab-A9-Wi-Fi-128GB-Graphite_Main.png?v=1722398508&amp;width=990" />
-          <span class="tag">Retour live</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">Samsung Galaxy Tab A9+</span>
-          <span class="model-ref">Tablette 11 pouces</span>
-        </div>
-        <div class="body">
-          <p>
-            Tablette utilisée comme retour live pour suivre le direct et lire
-            le chat, ainsi que pour la modération.
-          </p>
-          <span class="pill">Chat &amp; modération</span>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="visual photo">
-          <img alt="Samsung Galaxy S25 Ultra" loading="lazy"
-            src="https://vividgold.co.ke/cdn/shop/files/Samsung_Galaxy_S25_Ultra_Titanium_Grey.png?v=1739632884" />
-          <span class="tag">Commandes</span>
-        </div>
-        <div class="photo-caption">
-          <span class="product-name">Samsung Galaxy S25 Ultra</span>
-          <span class="model-ref">Utilisé avec Stream Deck Mobile</span>
-        </div>
-        <div class="body">
-          <p>
-            Mon smartphone, utilisé avec l’application Stream Deck Mobile
-            pour piloter certaines commandes du live.
-          </p>
-          <span class="pill">Stream Deck Mobile</span>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <section class="welcome">
-    🔥 Voilà les coulisses de mon installation ! Du jeu à la diffusion,
-    chaque élément a sa place pour partager de bons moments avec la Tribu.
-    Merci de soutenir <span style="color:var(--gold)">Foxy_6672</span> ! 🦊
-  </section>
-
-  <p class="small-note" style="text-align:center;margin-top:12px">
-    Les photos sont des visuels de présentation des produits.
-    Pour le ViewSonic, l’image est indicative car la référence exacte n’est pas connue.
-  </p>
-
-  <div class="footer">
-    Ma configuration gaming &amp; streaming — <b>Foxy_6672</b>
-  </div>
+<div class="footer">
+Ma configuration gaming &amp; streaming — <b>Foxy_6672</b>
+</div>
 
 </main>
 
 <script>
-  // Si une photo ne charge pas, on conserve le nom du produit
-  // dans la bande située juste en dessous.
-  document.querySelectorAll('.visual img').forEach(img => {
-    img.addEventListener('error', function () {
-      const box = this.parentElement;
-      const fallback = document.createElement('div');
-      fallback.className = 'image-fallback';
-      fallback.textContent = this.alt || 'Visuel indisponible';
-      this.remove();
-      box.appendChild(fallback);
-    }, { once: true });
-  });
+/* Si une photo ne charge pas, afficher un remplacement lisible */
+document.querySelectorAll('.visual img').forEach(img => {
+  img.addEventListener('error', function () {
+    const box = this.parentElement;
+    const fallback = document.createElement('div');
+    fallback.className = 'image-fallback';
+    fallback.textContent = this.alt || 'Visuel indisponible';
+    this.remove();
+    box.appendChild(fallback);
+  }, { once:true });
+});
 </script>
-
 </body>
 </html>
